@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+from time import sleep
+from sense_hat import SenseHat
+from random import randint
+
+sense = SenseHat()
+sense.clear()
+
+maxRGB = 255
+minRGB = 50
+
+counter = 0
+
+while True:
+	
+	i = randint(0, 7)
+	j = randint(0, 7)
+
+	r = randint(minRGB, maxRGB)
+	g = randint(minRGB, maxRGB)
+	b = randint(minRGB, maxRGB)
+
+	if (counter % 60) == 0:
+		sense.clear()
+	else:
+		sense.set_pixel(i, j, [r, g, b])
+
+	sleep(1)
+	counter += 1
+
+
